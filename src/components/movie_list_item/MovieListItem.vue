@@ -1,7 +1,8 @@
 <template>
-    <li class="list-group-item d-flex justify-content-between">
-        <span class="list-group-item-label">Movie Name</span>
-        <input type="number" class="list-group-item-input" defaultValue="811" />
+    <li class="list-group-item d-flex justify-content-between"
+        :class="[{ like: movie.like }, { favourite: movie.favourited }]">
+        <span class="list-group-item-label">{{ movie.name }}</span>
+        <input type="number" class="list-group-item-input" v-bind:value="movie.viewers" />
 
         <div class="d-flex justify-content-center align-items-center">
 
@@ -16,12 +17,17 @@
             <i class="fas fa-star"></i>
 
         </div>
-    </li>
+    </li>   
 </template>
 
 <script>
 export default {
-
+    props: {
+        movie: {
+            type: Object,
+            required: true,
+        },
+    },
 }
 </script>
 

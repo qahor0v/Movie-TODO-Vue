@@ -1,6 +1,6 @@
 <template>
     <ul class="movie-list list-group">
-    <MovieListItem v-for="movie in movies" />
+        <MovieListItem v-for="movie in movies" v-bind:movie="movie" />
     </ul>
 </template>
 
@@ -14,15 +14,22 @@ export default {
             movies: [
                 {
                     name: "Movie 1",
-                    viewers: 345
+                    viewers: 345,
+                    favourited: false,
+                    like: true,
                 },
                 {
                     name: "Movie 2",
-                    viewers: 332
+                    viewers: 332,
+                    favourited: true,
+                    like: false,
+
                 },
                 {
                     name: "Movie 3",
-                    viewers: 988
+                    viewers: 988,
+                    favourited: true,
+                    like: true,
                 }
             ]
         }
